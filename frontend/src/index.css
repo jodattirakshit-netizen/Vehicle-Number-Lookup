@@ -1,0 +1,150 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.18), transparent 45%),
+    radial-gradient(circle at 90% 0%, rgba(30, 144, 255, 0.2), transparent 40%),
+    #070b14;
+  color: #e6f7ff;
+}
+
+.auto-grid {
+  background-image: theme('backgroundImage.auto-grid');
+  background-size: 26px 26px;
+}
+
+.glass-card {
+  @apply border border-white/10 bg-white/5 backdrop-blur-xl shadow-glow;
+}
+
+.car-scene {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(0, 229, 255, 0.07), rgba(0, 0, 0, 0.18));
+  overflow: hidden;
+}
+
+.car-drive-in {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  animation: carEnter 2.8s ease-out 0.1s both, carCruise 7.5s ease-in-out 2.9s infinite;
+}
+
+.car-body {
+  position: relative;
+  width: 150px;
+  height: 46px;
+  border-radius: 18px 22px 10px 10px;
+  background: linear-gradient(90deg, #04d8f3, #1e90ff);
+  box-shadow: 0 8px 24px rgba(30, 144, 255, 0.45);
+}
+
+.car-top {
+  position: absolute;
+  top: -20px;
+  left: 34px;
+  width: 78px;
+  height: 22px;
+  border-radius: 16px 16px 8px 8px;
+  background: linear-gradient(90deg, rgba(194, 245, 255, 0.9), rgba(128, 220, 255, 0.92));
+}
+
+.car-wheel {
+  position: absolute;
+  bottom: -10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid #b4eeff;
+  background: #0c1322;
+  animation: wheelSpin 1.1s linear infinite;
+}
+
+.car-wheel-left {
+  left: 22px;
+}
+
+.car-wheel-right {
+  right: 22px;
+}
+
+.road-line {
+  position: absolute;
+  bottom: 12px;
+  width: 42px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(0, 229, 255, 0.7);
+}
+
+.road-line-1 {
+  left: 8%;
+  animation: roadMove 1.9s linear infinite;
+}
+
+.road-line-2 {
+  left: 42%;
+  animation: roadMove 1.9s linear 0.65s infinite;
+}
+
+.road-line-3 {
+  left: 76%;
+  animation: roadMove 1.9s linear 1.25s infinite;
+}
+
+@keyframes carEnter {
+  from {
+    transform: translateX(-185px) translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(40px) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes carCruise {
+  0% {
+    transform: translateX(40px);
+  }
+  50% {
+    transform: translateX(75px);
+  }
+  100% {
+    transform: translateX(40px);
+  }
+}
+
+@keyframes roadMove {
+  from {
+    transform: translateX(0);
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  to {
+    transform: translateX(-140px);
+    opacity: 0;
+  }
+}
+
+@keyframes wheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
